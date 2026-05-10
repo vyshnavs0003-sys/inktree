@@ -7,7 +7,7 @@ function MainLayout() {
     <div className="container-fluid vh-100 d-flex flex-column p-0">
       
       {/* Header */}
-      <div className="border-bottom">
+      <div className="border-bottom shadow-sm">
         <Header />
       </div>
 
