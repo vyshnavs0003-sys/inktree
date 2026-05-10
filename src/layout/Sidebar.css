@@ -1,0 +1,38 @@
+.sidebar-container {
+  height: 100%;
+}
+
+.sidebar-top {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tree-node {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 12px;
+}
+
+.active-node {
+  background-color: #f3f4f6;
+}
+
+.child-nodes {
+  margin-left: 24px;
+  margin-top: 12px;
+}
+
+.tree-leaf {
+  padding: 8px 0;
+}
+
+.action-icon {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-icon:hover {
+  opacity: 0.7;
+}
