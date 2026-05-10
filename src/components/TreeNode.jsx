@@ -5,75 +5,142 @@ import {
   FaChevronRight,
   FaFolder,
   FaFileAlt,
+  FaFolderPlus,
+  FaPlus,
+  FaTrash,
 } from "react-icons/fa";
 
 function TreeNode({
   node,
   activeNodeId,
   setActiveNodeId,
+  handleAddContainer,
+  handleAddLeaf,
+  handleDelete,
 }) {
 
-  const [isExpanded, setIsExpanded] = useState(
-    node.isExpanded || false
-  );
+  const [isExpanded, setIsExpanded] =
+    useState(node.isExpanded || false);
 
-  const isActive = activeNodeId === node.id;
-
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const isActive =
+    activeNodeId === node.id;
 
   return (
     <div className="mb-2">
 
       {/* Node Row */}
       <div
-        className={`tree-item d-flex align-items-center gap-2 ${
-          isActive ? "active-tree-item" : ""
+        className={`tree-item d-flex justify-content-between align-items-center ${
+          isActive
+            ? "active-tree-item"
+            : ""
         }`}
-        onClick={() => setActiveNodeId(node.id)}
+        onClick={() =>
+          setActiveNodeId(node.id)
+        }
       >
 
-        {/* Container Icon */}
-        {node.type === "container" ? (
-          <span onClick={handleToggle}>
-            {isExpanded ? (
-              <FaChevronDown />
-            ) : (
-              <FaChevronRight />
-            )}
-          </span>
-        ) : (
-          <span className="leaf-spacing"></span>
-        )}
+        {/* Left Section */}
+        <div className="d-flex align-items-center gap-2">
 
-        {/* Node Type Icon */}
-        {node.type === "container" ? (
-          <FaFolder />
-        ) : (
-          <FaFileAlt />
-        )}
+          {/* Expand Collapse */}
+          {node.type ===
+          "container" ? (
+            <span
+              onClick={() =>
+                setIsExpanded(
+                  !isExpanded
+                )
+              }
+            >
+              {isExpanded ? (
+                <FaChevronDown />
+              ) : (
+                <FaChevronRight />
+              )}
+            </span>
+          ) : (
+            <span className="leaf-spacing"></span>
+          )}
 
-        {/* Title */}
-        <span>{node.title}</span>
+          {/* Node Icon */}
+          {node.type ===
+          "container" ? (
+            <FaFolder />
+          ) : (
+            <FaFileAlt />
+          )}
+
+          {/* Title */}
+          <span>{node.title}</span>
+        </div>
+
+        {/* Actions */}
+        <div className="d-flex gap-2">
+
+          {/* Container Actions */}
+          {node.type ===
+            "container" && (
+            <>
+              <FaFolderPlus
+                onClick={() =>
+                  handleAddContainer(
+                    node.id
+                  )
+                }
+              />
+
+              <FaPlus
+                onClick={() =>
+                  handleAddLeaf(
+                    node.id
+                  )
+                }
+              />
+            </>
+          )}
+
+          {/* Delete */}
+          <FaTrash
+            onClick={() =>
+              handleDelete(
+                node.id
+              )
+            }
+          />
+        </div>
       </div>
 
       {/* Recursive Children */}
-      {node.type === "container" &&
+      {node.type ===
+        "container" &&
         isExpanded &&
-        node.children && (
-          <div className="ms-4 mt-2">
-
-            {node.children.map((child) => (
+        node.children?.map(
+          (child) => (
+            <div
+              className="ms-4 mt-2"
+              key={child.id}
+            >
               <TreeNode
-                key={child.id}
                 node={child}
-                activeNodeId={activeNodeId}
-                setActiveNodeId={setActiveNodeId}
+                activeNodeId={
+                  activeNodeId
+                }
+                setActiveNodeId={
+                  setActiveNodeId
+                }
+                handleAddContainer={
+                  handleAddContainer
+                }
+                handleAddLeaf={
+                  handleAddLeaf
+                }
+                handleDelete={
+                  handleDelete
+                }
               />
-            ))}
-
-          </div>
+            </div>
+          )
         )}
     </div>
   );
