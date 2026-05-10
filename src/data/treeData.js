@@ -3,6 +3,7 @@ const treeData = [
     id: 1,
     type: "container",
     title: "Module 1",
+    isExpanded:true,
     children: [
       {
         id: 2,
@@ -13,6 +14,7 @@ const treeData = [
         id: 3,
         type: "container",
         title: "Chapter 1",
+        isExpanded:true,
         children: [
           {
             id: 4,

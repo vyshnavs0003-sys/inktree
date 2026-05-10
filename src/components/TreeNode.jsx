@@ -1,30 +1,66 @@
+import { useState } from "react";
+
 import {
   FaChevronDown,
+  FaChevronRight,
   FaFolder,
   FaFileAlt,
 } from "react-icons/fa";
 
-function TreeNode({ node }) {
+function TreeNode({
+  node,
+  activeNodeId,
+  setActiveNodeId,
+}) {
+
+  const [isExpanded, setIsExpanded] = useState(
+    node.isExpanded || false
+  );
+
+  const isActive = activeNodeId === node.id;
+
+  const handleToggle = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
     <div className="mb-2">
 
       {/* Node Row */}
-      <div className="d-flex align-items-center gap-2">
+      <div
+        className={`tree-item d-flex align-items-center gap-2 ${
+          isActive ? "active-tree-item" : ""
+        }`}
+        onClick={() => setActiveNodeId(node.id)}
+      >
 
+        {/* Container Icon */}
         {node.type === "container" ? (
-          <>
-            <FaChevronDown />
-            <FaFolder />
-          </>
+          <span onClick={handleToggle}>
+            {isExpanded ? (
+              <FaChevronDown />
+            ) : (
+              <FaChevronRight />
+            )}
+          </span>
+        ) : (
+          <span className="leaf-spacing"></span>
+        )}
+
+        {/* Node Type Icon */}
+        {node.type === "container" ? (
+          <FaFolder />
         ) : (
           <FaFileAlt />
         )}
 
+        {/* Title */}
         <span>{node.title}</span>
       </div>
 
       {/* Recursive Children */}
       {node.type === "container" &&
+        isExpanded &&
         node.children && (
           <div className="ms-4 mt-2">
 
@@ -32,6 +68,8 @@ function TreeNode({ node }) {
               <TreeNode
                 key={child.id}
                 node={child}
+                activeNodeId={activeNodeId}
+                setActiveNodeId={setActiveNodeId}
               />
             ))}
 

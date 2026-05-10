@@ -1,11 +1,16 @@
 import "./Sidebar.css";
 
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-import treeData from "../data/treeData";
+import initialTreeData from "../data/treeData";
 import TreeNode from "../components/TreeNode";
 
 function Sidebar() {
+  const [treeData, setTreeData] = useState(initialTreeData);
+
+  const [activeNodeId, setActiveNodeId] = useState(null);
+
   return (
     <div className="sidebar-container">
 
@@ -26,6 +31,8 @@ function Sidebar() {
           <TreeNode
             key={node.id}
             node={node}
+            activeNodeId={activeNodeId}
+            setActiveNodeId={setActiveNodeId}
           />
         ))}
 
