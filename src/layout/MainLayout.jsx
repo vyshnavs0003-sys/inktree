@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -8,11 +8,32 @@ import treeData from "../data/treeData";
 
 function MainLayout() {
 
+  
   const [tree, setTree] =
-    useState(treeData);
+    useState(() => {
+
+      const savedTree =
+        localStorage.getItem(
+          "treeData"
+        );
+
+      return savedTree
+        ? JSON.parse(savedTree)
+        : treeData;
+    });
 
   const [activeNodeId, setActiveNodeId] =
     useState(null);
+
+  
+  useEffect(() => {
+
+    localStorage.setItem(
+      "treeData",
+      JSON.stringify(tree)
+    );
+
+  }, [tree]);
 
   return (
     <div className="container-fluid vh-100">
