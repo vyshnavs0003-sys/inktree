@@ -106,6 +106,7 @@ function Sidebar() {
         <TreeNode
           key={node.id}
           node={node}
+          depth={0}
           activeNodeId={activeNodeId}
           setActiveNodeId={setActiveNodeId}
           handleAddContainer={handleAddContainer}

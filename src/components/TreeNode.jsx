@@ -12,6 +12,7 @@ import {
 
 function TreeNode({
   node,
+  depth,
   activeNodeId,
   setActiveNodeId,
   handleAddContainer,
@@ -25,6 +26,10 @@ function TreeNode({
   const isActive =
     activeNodeId === node.id;
 
+
+  const indentation =
+    Math.min(depth * 12, 72);
+
   return (
     <div className="mb-2">
 
@@ -35,6 +40,9 @@ function TreeNode({
             ? "active-tree-item"
             : ""
         }`}
+        style={{
+          paddingLeft: `${indentation}px`,
+        }}
         onClick={() =>
           setActiveNodeId(node.id)
         }
@@ -43,7 +51,7 @@ function TreeNode({
         {/* Left Section */}
         <div className="d-flex align-items-center gap-2">
 
-          {/* Expand Collapse */}
+          {/* Expand and Collapse */}
           {node.type ===
           "container" ? (
             <span
@@ -71,7 +79,7 @@ function TreeNode({
             <FaFileAlt />
           )}
 
-          {/* Title */}
+          {/* Node Title */}
           <span>{node.title}</span>
         </div>
 
@@ -118,11 +126,12 @@ function TreeNode({
         node.children?.map(
           (child) => (
             <div
-              className="ms-4 mt-2"
+              className="mt-2"
               key={child.id}
             >
               <TreeNode
                 node={child}
+                depth={depth + 1}
                 activeNodeId={
                   activeNodeId
                 }
