@@ -1,3 +1,151 @@
+.editor-panel {
+  height: 100%;
+  padding: 32px;
+
+  overflow-y: auto;
+
+  background-color: #f8f9fa;
+}
+
+/* ---------- Top Section ---------- */
+
+.editor-top-section {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+/* ---------- Branding ---------- */
+
+.editor-brand {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #212529;
+}
+
+.editor-subtitle {
+  margin-top: 4px;
+
+  font-size: 14px;
+
+  color: #6c757d;
+}
+
+/* ---------- Breadcrumb ---------- */
+
+.editor-breadcrumb {
+  margin-bottom: 20px;
+
+  font-size: 14px;
+
+  color: #868e96;
+}
+
+/* ---------- Title ---------- */
+
+.editor-title {
+  margin-bottom: 24px;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  color: #212529;
+}
+
+/* ---------- Toolbar Label ---------- */
+
+.toolbar-section-label {
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #495057;
+}
+
+/* ---------- Share Button ---------- */
+
+.editor-share-btn {
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  background-color: #212529;
+
+  color: white;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.editor-share-btn:hover {
+  opacity: 0.9;
+
+  transform: translateY(-1px);
+}
+
+/* ---------- React Quill ---------- */
+
+.ql-toolbar {
+  border-radius: 10px 10px 0 0;
+}
+
+.ql-container {
+  min-height: 320px;
+
+  border-radius: 0 0 10px 10px;
+
+  background-color: white;
+}
+
+.ql-editor {
+  min-height: 280px;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ---------- Add Content Section ---------- */
+
+.add-content-section {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.add-content-section button {
+  border: 1px solid #dee2e6;
+
+  padding: 10px 16px;
+
+  border-radius: 8px;
+
+  background-color: white;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.add-content-section button:hover {
+  background-color: #f1f3f5;
+
+  transform: translateY(-1px);
+}
+
+/* ---------- Empty State ---------- */
+
 .empty-editor-state {
   height: 100%;
 
@@ -13,30 +161,44 @@
 }
 
 .empty-editor-state h4 {
-  margin-bottom: 10px;
+  margin:
+    20px 0 10px;
 }
 
 .empty-editor-state p {
-  max-width: 300px;
+  max-width: 320px;
 }
 
-.ql-container {
-  min-height: 300px;
-}
-
-.ql-editor {
-  min-height: 250px;
-}
+/* ---------- Responsive ---------- */
 
 @media (max-width: 768px) {
 
+  .editor-panel {
+    padding: 20px;
+  }
+
+  .editor-top-section {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .editor-title {
+    font-size: 26px;
+  }
+
   .ql-container {
-    min-height: 200px;
+    min-height: 220px;
   }
 
   .ql-editor {
     min-height: 180px;
   }
 
-}
+  .add-content-section {
+    flex-wrap: wrap;
+  }
 
+}
