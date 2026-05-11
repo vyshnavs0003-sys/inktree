@@ -1,9 +1,7 @@
 import "./Sidebar.css";
 
-import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-import initialTreeData from "../data/treeData";
 import TreeNode from "../components/TreeNode";
 
 import {
@@ -11,18 +9,21 @@ import {
   deleteNode,
 } from "../utils/treeUtils";
 
-function Sidebar() {
-  const [treeData, setTreeData] =
-    useState(initialTreeData);
+function Sidebar({
+  tree,
+  setTree,
+  activeNodeId,
+  setActiveNodeId,
+}) {
 
-  const [activeNodeId, setActiveNodeId] =
-    useState(null);
-
-  
+  // Root Container
   const createContainer = () => {
+
     const newNode = {
       id: Date.now(),
+
       type: "container",
+
       title: "New Container",
 
       content: {
@@ -31,17 +32,26 @@ function Sidebar() {
       },
 
       isExpanded: true,
+
       children: [],
     };
 
-    setTreeData([...treeData, newNode]);
+    setTree([
+      ...tree,
+      newNode,
+    ]);
   };
 
- 
-  const handleAddContainer = (parentId) => {
+  // Add Container Child
+  const handleAddContainer = (
+    parentId
+  ) => {
+
     const newNode = {
       id: Date.now(),
+
       type: "container",
+
       title: "New Container",
 
       content: {
@@ -50,19 +60,29 @@ function Sidebar() {
       },
 
       isExpanded: true,
+
       children: [],
     };
 
-    setTreeData(
-      addNode(treeData, parentId, newNode)
+    setTree(
+      addNode(
+        tree,
+        parentId,
+        newNode
+      )
     );
   };
 
-  
-  const handleAddLeaf = (parentId) => {
+  // Add Leaf Child
+  const handleAddLeaf = (
+    parentId
+  ) => {
+
     const newNode = {
       id: Date.now(),
+
       type: "leaf",
+
       title: "New Item",
 
       content: {
@@ -71,22 +91,32 @@ function Sidebar() {
       },
     };
 
-    setTreeData(
-      addNode(treeData, parentId, newNode)
+    setTree(
+      addNode(
+        tree,
+        parentId,
+        newNode
+      )
     );
   };
 
-  
-  const handleDelete = (nodeId) => {
-    setTreeData(
-      deleteNode(treeData, nodeId)
+  // Delete
+  const handleDelete = (
+    nodeId
+  ) => {
+
+    setTree(
+      deleteNode(
+        tree,
+        nodeId
+      )
     );
   };
 
   return (
     <div className="sidebar-container">
 
-      {/* Sidebar Header */}
+      {/* Header */}
       <div className="sidebar-top d-flex justify-content-between align-items-center mb-3">
 
         <h6 className="m-0">
@@ -101,8 +131,8 @@ function Sidebar() {
         </button>
       </div>
 
-      {/* Tree Nodes */}
-      {treeData.map((node) => (
+      {/* Tree */}
+      {tree.map((node) => (
         <TreeNode
           key={node.id}
           node={node}

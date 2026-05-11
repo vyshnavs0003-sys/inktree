@@ -43,9 +43,11 @@ function TreeNode({
         style={{
           paddingLeft: `${indentation}px`,
         }}
-        onClick={() =>
+        
+        onClick={() =>{
+          console.log("clicked node:",node.id, node.title);
           setActiveNodeId(node.id)
-        }
+        }}
       >
 
         {/* Left Section */}
