@@ -20,3 +20,22 @@ A responsive single‑page application for authoring and editing tree‑structur
 - **Vite** – Build tool
 - **LocalStorage** – Persistence
 
+## Key Decisions & Assumptions
+
+- **Indentation cap at 72px** – I didn't want the sidebar to break when someone nests 10 levels deep. Each level adds 12px, stops at 72px. Works like VS Code.
+
+- **Container vs leaf** – Containers can have children, leaves can't. UI only shows add buttons on containers.
+
+- **localStorage only** – No backend, just saves tree and dark mode locally. Good enough for the assignment.
+
+- **Why react-quill-new** – The normal react-quill crashed on React 18. This fork fixed it.
+
+- **Recursive TreeNode** – Handles unlimited depth. Might slow down at 500+ nodes but fine for an editor.
+
+- **Dark mode via CSS class** – Simple toggle on the root div, saves to localStorage.
+
+- **Responsive** – Sidebar goes full width on mobile. Not perfect but usable.
+
+- **Graph tab not functional** – Assignment only needed the tree view.
+
+- **IDs using Date.now()** – Works for one user. Would use uuid if multiple people edited at once.
