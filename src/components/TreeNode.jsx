@@ -45,7 +45,6 @@ function TreeNode({
         }}
         
         onClick={() =>{
-          console.log("clicked node:",node.id, node.title);
           setActiveNodeId(node.id)
         }}
       >
@@ -57,11 +56,10 @@ function TreeNode({
           {node.type ===
           "container" ? (
             <span
-              onClick={() =>
-                setIsExpanded(
-                  !isExpanded
-                )
-              }
+              onClick={(e) => {
+                 e.stopPropagation();
+                 setIsExpanded(!isExpanded);
+                }}
             >
               {isExpanded ? (
                 <FaChevronDown />
@@ -93,30 +91,27 @@ function TreeNode({
             "container" && (
             <>
               <FaFolderPlus
-                onClick={() =>
-                  handleAddContainer(
-                    node.id
-                  )
-                }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddContainer(node.id);
+                }}
               />
 
               <FaPlus
-                onClick={() =>
-                  handleAddLeaf(
-                    node.id
-                  )
-                }
+               onClick={(e) => {
+                e.stopPropagation();
+                handleAddLeaf(node.id);
+              }}
               />
             </>
           )}
 
           {/* Delete */}
           <FaTrash
-            onClick={() =>
-              handleDelete(
-                node.id
-              )
-            }
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(node.id);
+            }}
           />
         </div>
       </div>

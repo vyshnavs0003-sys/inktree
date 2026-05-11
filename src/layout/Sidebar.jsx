@@ -16,7 +16,7 @@ function Sidebar({
   setActiveNodeId,
 }) {
 
-  // Root Container
+ 
   const createContainer = () => {
 
     const newNode = {
@@ -42,7 +42,7 @@ function Sidebar({
     ]);
   };
 
-  // Add Container Child
+  
   const handleAddContainer = (
     parentId
   ) => {
@@ -73,7 +73,7 @@ function Sidebar({
     );
   };
 
-  // Add Leaf Child
+ 
   const handleAddLeaf = (
     parentId
   ) => {
@@ -100,7 +100,7 @@ function Sidebar({
     );
   };
 
-  // Delete
+  
   const handleDelete = (
     nodeId
   ) => {

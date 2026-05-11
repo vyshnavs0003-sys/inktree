@@ -14,17 +14,14 @@ function EditorPanel({
   setTree,
   activeNodeId,
 }) {
-  console.log("activateNodeId in EditorPanel:", activeNodeId);  
+ 
 
   const activeNode =
     findNodeById(
       tree,
       activeNodeId
     );
-  console.log("activeNode found:", activeNode);
-  console.log("Does activeNode have content?", activeNode?.content);
-  console.log("Content value:", activeNode?.content?.value);  
-
+  
   const handleEditorChange = (
     value
   ) => {
@@ -61,8 +58,14 @@ function EditorPanel({
 
         </>
       ) : (
-        <div>
-          Select a node to edit
+        <div className="empty-editor-state">
+          <h4>
+            No Content Selected
+          </h4>
+
+          <p>
+            Select a node from the sidebar to start editing.
+          </p>
         </div>
       )}
     </div>

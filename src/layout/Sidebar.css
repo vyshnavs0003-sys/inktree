@@ -9,18 +9,26 @@
 }
 
 .tree-item {
-  padding: 8px 10px;
-  border-radius: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: 0.2s;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .tree-item:hover {
   background-color: #f1f3f5;
 }
 
+.tree-item:active {
+  transform: scale(0.98);
+}
+
 .active-tree-item {
   background-color: #dee2e6;
+  font-weight: 500;
 }
 
 .leaf-spacing {
@@ -28,7 +36,9 @@
 }
 
 @media (max-width: 768px) {
+
   .sidebar-container {
     max-height: 300px;
   }
+
 }
