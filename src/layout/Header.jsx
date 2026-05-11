@@ -1,35 +1,115 @@
-import { FaBars, FaUserCircle } from "react-icons/fa";
+import { useState } from "react";
+
+import {
+  FaBars,
+  FaUserCircle,
+  FaBell,
+  FaSearch,
+} from "react-icons/fa";
+
 import "./Header.css";
 
-function Header() {
+function Header({
+  darkMode,
+  setDarkMode,
+}) {
+
+  const [showMenu, setShowMenu] =
+    useState(false);
+
   return (
-    <header className="d-flex justify-content-between align-items-center px-4 py-3 bg-white">
+
+    <header className="header-container">
 
       {/* Left Section */}
-      <div className="d-flex align-items-center gap-3">
-        <FaBars size={20} />
-        <h5 className="m-0">Tree Editor</h5>
+      <div className="header-left">
+
+        <FaBars size={18} />
+
+        <div className="search-box">
+
+          <FaSearch />
+
+          <input
+            type="text"
+            placeholder="Search..."
+          />
+
+        </div>
+
       </div>
 
       {/* Center Section */}
-      <div className="d-flex gap-2">
-        <button className="btn btn-dark btn-sm">
+      <div className="header-center">
+
+        <button className="active-tab">
           Tree
         </button>
 
-        <button className="btn btn-outline-secondary btn-sm">
+        <button>
           Graph
         </button>
+
       </div>
 
       {/* Right Section */}
-      <div className="d-flex align-items-center gap-3">
+      <div className="header-right">
 
-        <button className="btn btn-primary btn-sm">
+        <button className="invite-btn">
           Invite
         </button>
 
-        <FaUserCircle size={28} />
+        <FaBell className="header-icon" />
+
+        <div className="profile-wrapper">
+
+          <FaUserCircle
+            size={28}
+            className="header-icon"
+            onClick={() =>
+              setShowMenu(!showMenu)
+            }
+          />
+
+          {showMenu && (
+
+            <div className="profile-menu">
+
+              {/* Dark Mode Toggle */}
+              <div className="dark-mode-toggle">
+
+                <span>Dark Mode</span>
+
+                <label className="switch">
+
+                  <input
+                    type="checkbox"
+                    checked={darkMode}
+                    onChange={() =>
+                      setDarkMode(!darkMode)
+                    }
+                  />
+
+                  <span className="slider"></span>
+
+                </label>
+
+              </div>
+
+              <p>Profile</p>
+
+              <p>What's New</p>
+
+              <p>Help</p>
+
+              <p>Logout</p>
+
+            </div>
+
+          )}
+
+        </div>
+
       </div>
 
     </header>

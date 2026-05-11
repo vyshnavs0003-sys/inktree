@@ -2,10 +2,108 @@ html,
 body,
 #root {
   height: 100%;
+
   margin: 0;
   padding: 0;
 }
 
+body {
+  font-family: Arial, sans-serif;
+}
+
 .container-fluid {
   overflow-x: hidden;
+}
+
+/* DARK MODE */
+
+.dark-mode {
+  background-color: #121212;
+
+  color: white;
+}
+
+
+.dark-mode .header-container {
+  background-color: #1e1e1e;
+
+  border-bottom: 1px solid #343a40;
+
+  color: white;
+}
+
+
+.dark-mode .search-box {
+  background-color: #2c2c2c;
+}
+
+.dark-mode .search-box input {
+  color: white;
+}
+
+
+.dark-mode .header-center button {
+  color: white;
+}
+
+.dark-mode .header-center button:hover {
+  background-color: #2c2c2c;
+}
+
+
+.dark-mode .sidebar-container {
+  background-color: #1e1e1e;
+
+  color: white;
+}
+
+
+.dark-mode .tree-item:hover {
+  background-color: #2c2c2c;
+}
+
+.dark-mode .active-tree-item {
+  background-color: #343a40;
+}
+
+
+.dark-mode .bg-light {
+  background-color: #121212 !important;
+
+  color: white;
+}
+
+
+.dark-mode .ql-toolbar {
+  background-color: #1e1e1e;
+
+  border-color: #343a40;
+}
+
+
+.dark-mode .ql-container {
+  background-color: #1e1e1e;
+
+  border-color: #343a40;
+
+  color: white;
+}
+
+.dark-mode .ql-editor {
+  color: white;
+}
+
+
+.dark-mode .profile-menu {
+  background-color: #1e1e1e;
+
+  color: white;
+}
+
+.dark-mode .profile-menu p:hover {
+  background-color: #343a40;
+}
+
+.dark-mode input {
+  color: white;
 }

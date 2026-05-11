@@ -1,5 +1,13 @@
-header {
+.header-container {
   min-height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+
+  background: white;
 
   border-bottom: 1px solid #dee2e6;
 
@@ -9,26 +17,227 @@ header {
   z-index: 1000;
 }
 
-header button {
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+}
+
+/* Search Box */
+.search-box {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  background: #f1f3f5;
+
+  border-radius: 8px;
+
+  min-width: 220px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  width: 100%;
+}
+
+/* Center Buttons */
+.header-center button {
+  border: none;
+
+  background: transparent;
+
+  padding: 6px 12px;
+
+  border-radius: 6px;
+
+  transition: 0.2s;
+}
+
+.header-center button:hover {
+  background: #f1f3f5;
+}
+
+.active-tab {
+  background: #212529 !important;
+
+  color: white;
+}
+
+/* Invite Button */
+.invite-btn {
+  border: none;
+
+  background: #0d6efd;
+
+  color: white;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  transition: 0.2s;
+}
+
+.invite-btn:hover {
+  opacity: 0.9;
+}
+
+/* Icons */
+.header-icon {
+  cursor: pointer;
+
   transition:
     transform 0.15s ease,
     opacity 0.2s ease;
 }
 
-header button:hover {
-  transform: translateY(-1px);
-}
-
-header svg {
-  cursor: pointer;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.15s ease;
-}
-
-header svg:hover {
-  opacity: 0.8;
+.header-icon:hover {
+  opacity: 0.7;
 
   transform: scale(1.05);
+}
+
+/* Profile Menu */
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-menu {
+  position: absolute;
+
+  top: 42px;
+  right: 0;
+
+  width: 200px;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  padding: 8px 0;
+
+  z-index: 2000;
+}
+
+.profile-menu p {
+  margin: 0;
+
+  padding: 10px 16px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.profile-menu p:hover {
+  background: #f1f3f5;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px 16px;
+}
+
+.switch {
+  position: relative;
+
+  display: inline-block;
+
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+
+  cursor: pointer;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #ccc;
+
+  transition: 0.3s;
+
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+
+  content: "";
+
+  height: 16px;
+  width: 16px;
+
+  left: 3px;
+  bottom: 3px;
+
+  background-color: white;
+
+  transition: 0.3s;
+
+  border-radius: 50%;
+}
+
+.switch input:checked + .slider {
+  background-color: #212529;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+  .header-container {
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 12px;
+  }
+
+  .header-left,
+  .header-center,
+  .header-right {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .search-box {
+    flex: 1;
+
+    min-width: unset;
+  }
+
 }
