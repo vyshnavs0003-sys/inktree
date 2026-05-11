@@ -1,5 +1,7 @@
 # InkTree – Hierarchical Content Editor
 
+Live demo:[https://inktree-editor.netlify.app/]
+
 A responsive single‑page application for authoring and editing tree‑structured content. Built with React, Bootstrap, and React Quill. Supports unlimited tree depth, container/leaf nodes, WYSIWYG editing, dark mode, and localStorage persistence.
 
 ## Features
