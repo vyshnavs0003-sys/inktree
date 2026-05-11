@@ -1,16 +1,22 @@
-# React + Vite
+# InkTree – Hierarchical Content Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive single‑page application for authoring and editing tree‑structured content. Built with React, Bootstrap, and React Quill. Supports unlimited tree depth, container/leaf nodes, WYSIWYG editing, dark mode, and localStorage persistence.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Hierarchical Tree** – Add, remove, and nest nodes (containers and leaves) with unlimited depth.
+- **WYSIWYG Editor** – Medium‑like editor with headings, bold, italic, lists, blockquotes, code blocks, images, and videos.
+- **Content Persistence** – Tree structure and node content saved automatically to `localStorage`.
+- **Dark Mode** – Toggle dark/light theme, preference saved in `localStorage`.
+- **Responsive Layout** – Works on desktop, tablet, and mobile (sidebar collapses on small screens).
+- **Recursive Rendering** – Scalable tree rendering with depth‑based indentation (capped at 72px).
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** – UI library
+- **Bootstrap** – Layout & responsive grid
+- **React Quill (fork)** – Rich text editor with custom toolbar
+- **React Icons** – Icons for tree and header
+- **Vite** – Build tool
+- **LocalStorage** – Persistence
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
