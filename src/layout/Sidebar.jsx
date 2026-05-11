@@ -1,9 +1,6 @@
 import "./Sidebar.css";
-
 import { FaPlus } from "react-icons/fa";
-
 import TreeNode from "../components/TreeNode";
-
 import {
   addNode,
   deleteNode,
@@ -18,21 +15,15 @@ function Sidebar({
 
  
   const createContainer = () => {
-
     const newNode = {
       id: Date.now(),
-
       type: "container",
-
       title: "New Container",
-
       content: {
         type: "richText",
         value: "<p>New Container</p>",
       },
-
       isExpanded: true,
-
       children: [],
     };
 
@@ -49,18 +40,13 @@ function Sidebar({
 
     const newNode = {
       id: Date.now(),
-
       type: "container",
-
       title: "New Container",
-
       content: {
         type: "richText",
         value: "<p>New Container</p>",
       },
-
       isExpanded: true,
-
       children: [],
     };
 
@@ -80,11 +66,8 @@ function Sidebar({
 
     const newNode = {
       id: Date.now(),
-
       type: "leaf",
-
       title: "New Item",
-
       content: {
         type: "richText",
         value: "<p>New Item</p>",
@@ -115,14 +98,10 @@ function Sidebar({
 
   return (
     <div className="sidebar-container">
-
-      {/* Header */}
       <div className="sidebar-top d-flex justify-content-between align-items-center mb-3">
-
         <h6 className="m-0">
           Content Tree
         </h6>
-
         <button
           className="btn btn-sm btn-dark"
           onClick={createContainer}
@@ -130,8 +109,6 @@ function Sidebar({
           <FaPlus />
         </button>
       </div>
-
-      {/* Tree */}
       {tree.map((node) => (
         <TreeNode
           key={node.id}

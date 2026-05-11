@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import {
   FaChevronDown,
   FaChevronRight,
@@ -23,17 +22,14 @@ function TreeNode({
   const [isExpanded, setIsExpanded] =
     useState(node.isExpanded || false);
 
-  const isActive =
-    activeNodeId === node.id;
+  const isActive = activeNodeId === node.id;
 
 
-  const indentation =
-    Math.min(depth * 12, 72);
+  const indentation = Math.min(depth * 12, 72);
 
   return (
     <div className="mb-2">
 
-      {/* Node Row */}
       <div
         className={`tree-item d-flex justify-content-between align-items-center ${
           isActive
@@ -49,10 +45,8 @@ function TreeNode({
         }}
       >
 
-        {/* Left Section */}
         <div className="d-flex align-items-center gap-2">
 
-          {/* Expand and Collapse */}
           {node.type ===
           "container" ? (
             <span
@@ -71,7 +65,6 @@ function TreeNode({
             <span className="leaf-spacing"></span>
           )}
 
-          {/* Node Icon */}
           {node.type ===
           "container" ? (
             <FaFolder />
@@ -79,14 +72,11 @@ function TreeNode({
             <FaFileAlt />
           )}
 
-          {/* Node Title */}
           <span>{node.title}</span>
         </div>
 
-        {/* Actions */}
         <div className="d-flex gap-2">
 
-          {/* Container Actions */}
           {node.type ===
             "container" && (
             <>
@@ -106,7 +96,6 @@ function TreeNode({
             </>
           )}
 
-          {/* Delete */}
           <FaTrash
             onClick={(e) => {
               e.stopPropagation();
@@ -116,7 +105,6 @@ function TreeNode({
         </div>
       </div>
 
-      {/* Recursive Children */}
       {node.type ===
         "container" &&
         isExpanded &&

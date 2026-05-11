@@ -7,8 +7,6 @@
   background-color: #f8f9fa;
 }
 
-/* ---------- Top Section ---------- */
-
 .editor-top-section {
   display: flex;
 
@@ -17,8 +15,6 @@
 
   margin-bottom: 10px;
 }
-
-/* ---------- Branding ---------- */
 
 .editor-brand {
   margin: 0;
@@ -37,8 +33,6 @@
   color: #6c757d;
 }
 
-/* ---------- Breadcrumb ---------- */
-
 .editor-breadcrumb {
   margin-bottom: 20px;
 
@@ -46,8 +40,6 @@
 
   color: #868e96;
 }
-
-/* ---------- Title ---------- */
 
 .editor-title {
   margin-bottom: 24px;
@@ -58,8 +50,6 @@
   color: #212529;
 }
 
-/* ---------- Toolbar Label ---------- */
-
 .toolbar-section-label {
   margin-bottom: 10px;
 
@@ -68,8 +58,6 @@
 
   color: #495057;
 }
-
-/* ---------- Share Button ---------- */
 
 .editor-share-btn {
   border: none;
@@ -93,8 +81,6 @@
   transform: translateY(-1px);
 }
 
-/* ---------- React Quill ---------- */
-
 .ql-toolbar {
   border-radius: 10px 10px 0 0;
 }
@@ -113,8 +99,6 @@
   font-size: 16px;
   line-height: 1.7;
 }
-
-/* ---------- Add Content Section ---------- */
 
 .add-content-section {
   display: flex;
@@ -144,8 +128,6 @@
   transform: translateY(-1px);
 }
 
-/* ---------- Empty State ---------- */
-
 .empty-editor-state {
   height: 100%;
 
@@ -168,8 +150,6 @@
 .empty-editor-state p {
   max-width: 320px;
 }
-
-/* ---------- Responsive ---------- */
 
 @media (max-width: 768px) {
 

@@ -15,7 +15,6 @@ body {
   overflow-x: hidden;
 }
 
-/* DARK MODE */
 
 .dark-mode {
   background-color: #121212;
@@ -108,14 +107,12 @@ body {
   color: white;
 }
 
-/* Editor Panel */
 .dark-mode .editor-panel {
   background-color: #121212;
 
   color: white;
 }
 
-/* Editor Text */
 .dark-mode .editor-brand,
 .dark-mode .editor-title {
   color: white;
@@ -127,7 +124,6 @@ body {
   color: #adb5bd;
 }
 
-/* Editor Buttons */
 .dark-mode .add-content-section button {
   background-color: #1e1e1e;
 

@@ -3,15 +3,15 @@ import "react-quill-new/dist/quill.snow.css";
 import "./EditorPanel.css";
 import { findNodeById, updateNodeContent } from "../utils/editorUtils";
 
-// ----- Custom Toolbar Configuration (Medium‑like) -----
+
 const modules = {
   toolbar: [
-    [{ header: [1, 2, 3, false] }],  // Headings H1, H2, H3, Normal
+    [{ header: [1, 2, 3, false] }],  
     ["bold", "italic", "underline", "strike"],
     [{ list: "ordered" }, { list: "bullet" }],
     ["blockquote", "code-block"],
     ["link", "image", "video"],
-    ["clean"],  // remove formatting
+    ["clean"],  
   ],
 };
 
@@ -35,7 +35,6 @@ function EditorPanel({ tree, setTree, activeNodeId }) {
     <div className="editor-panel">
       {activeNode ? (
         <>
-          {/* Top Section */}
           <div className="editor-top-section">
             <div>
               <h2 className="editor-brand">InkTree Editor</h2>
@@ -43,17 +42,9 @@ function EditorPanel({ tree, setTree, activeNodeId }) {
             </div>
             <button className="editor-share-btn">Share</button>
           </div>
-
-          {/* Breadcrumb */}
           <p className="editor-breadcrumb">Workspace / Content / Editor</p>
-
-          {/* Title */}
           <h3 className="editor-title">{activeNode.title}</h3>
-
-          {/* Toolbar Label */}
           <div className="toolbar-section-label">Formatting Tools</div>
-
-          {/* Editor with custom toolbar */}
           <ReactQuill
             theme="snow"
             modules={modules}
@@ -61,8 +52,7 @@ function EditorPanel({ tree, setTree, activeNodeId }) {
             value={activeNode.content.value}
             onChange={handleEditorChange}
           />
-
-          {/* Add Content Section */}
+         
           <div className="add-content-section">
             <button>+ Add Widget</button>
             <button>+ Add Media</button>

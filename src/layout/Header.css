@@ -26,7 +26,7 @@
   gap: 16px;
 }
 
-/* Search Box */
+
 .search-box {
   display: flex;
   align-items: center;
@@ -51,7 +51,7 @@
   width: 100%;
 }
 
-/* Center Buttons */
+
 .header-center button {
   border: none;
 
@@ -74,7 +74,7 @@
   color: white;
 }
 
-/* Invite Button */
+
 .invite-btn {
   border: none;
 
@@ -93,7 +93,6 @@
   opacity: 0.9;
 }
 
-/* Icons */
 .header-icon {
   cursor: pointer;
 
@@ -108,7 +107,7 @@
   transform: scale(1.05);
 }
 
-/* Profile Menu */
+
 .profile-wrapper {
   position: relative;
 }
@@ -146,7 +145,7 @@
   background: #f1f3f5;
 }
 
-/* Dark Mode Toggle */
+
 .dark-mode-toggle {
   display: flex;
 
@@ -215,7 +214,7 @@
   transform: translateX(20px);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
 
   .header-container {

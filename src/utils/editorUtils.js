@@ -4,13 +4,11 @@ export const findNodeById = (
 ) => {
 
   for (const node of tree) {
-
     if (node.id === nodeId) {
       return node;
     }
 
     if (node.children) {
-
       const foundNode =
         findNodeById(
           node.children,
@@ -33,9 +31,7 @@ export const updateNodeContent = (
 ) => {
 
   return tree.map((node) => {
-
     if (node.id === nodeId) {
-
       return {
         ...node,
 
@@ -47,7 +43,6 @@ export const updateNodeContent = (
     }
 
     if (node.children) {
-
       return {
         ...node,
 
